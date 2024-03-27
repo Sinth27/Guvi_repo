@@ -1,0 +1,97 @@
+ubuntu@ip-172-31-80-59:~$ mkdir loop
+ubuntu@ip-172-31-80-59:~$ cd loop
+ubuntu@ip-172-31-80-59:~/loop$ vi for.sh
+ubuntu@ip-172-31-80-59:~/loop$ sudo chmod +x for.sh
+ubuntu@ip-172-31-80-59:~/loop$ ./for.sh
+number: 1
+number: 2
+number: 3
+number: 4
+number: 5
+ubuntu@ip-172-31-80-59:~/loop$ cat for.sh
+#!/bin/bash
+
+for ((i=1; i<=5; i++))
+do 
+        echo "number: $i"
+done
+
+ubuntu@ip-172-31-80-59:~/loop$ vi while.sh
+ubuntu@ip-172-31-80-59:~/loop$ sudo chmod +x while.sh
+ubuntu@ip-172-31-80-59:~/loop$ ./while.sh
+looping .....
+value of counrt is 0.
+./while.sh: line 5: [: 0++: integer expression expected
+out of loop
+ubuntu@ip-172-31-80-59:~/loop$ vi while.sh
+ubuntu@ip-172-31-80-59:~/loop$ ./while.sh
+looping .....
+value of counrt is 0.
+./while.sh: line 5: [: 0++: integer expression expected
+out of loop
+ubuntu@ip-172-31-80-59:~/loop$ vi while.sh
+ubuntu@ip-172-31-80-59:~/loop$ ./while.shv
+-bash: ./while.shv: No such file or directory
+ubuntu@ip-172-31-80-59:~/loop$ .
+-bash: .: filename argument required
+.: usage: . filename [arguments]
+ubuntu@ip-172-31-80-59:~/loop$ ./while.sh
+./while.sh: line 9: syntax error near unexpected token `('
+./while.sh: line 9: `   counter=(( $counter++))'
+./while.sh: line 11: syntax error near unexpected token `done'
+./while.sh: line 11: `done'
+ubuntu@ip-172-31-80-59:~/loop$ vi while.sh
+ubuntu@ip-172-31-80-59:~/loop$ ./while.sh
+looping .....
+value of counrt is 0.
+looping .....
+value of counrt is 1.
+looping .....
+value of counrt is 2.
+looping .....
+value of counrt is 3.
+looping .....
+value of counrt is 4.
+out of loop
+ubuntu@ip-172-31-80-59:~/loop$ cat while.sh
+#!/bin/bash
+
+counter=0
+
+while [ $counter -lt 5 ]
+do
+        echo "looping ....."
+        echo "value of counrt is $counter."
+        counter=$(( $counter + 1 ))
+        sleep 1
+done
+echo "out of loop"  
+
+                                      while2.sh
+
+ubuntu@ip-172-31-80-59:~/loop$ vi while2.sh
+ubuntu@ip-172-31-80-59:~/loop$ ./while2.sh
+countdown: 5
+countdown: 4
+countdown: 3
+countdown: 2
+countdown: 1
+out of loop
+ubuntu@ip-172-31-80-59:~/loop$ cat while2.sh
+#!/bin/bash
+
+count=5
+
+while [ $count -gt 0 ]; do
+
+echo "countdown: $count"
+
+((count--))
+
+done
+
+echo "out of loop" 
+
+ubuntu@ip-172-31-80-59:~/loop$
+
+
